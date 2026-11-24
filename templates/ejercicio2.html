@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Comparación de Nombres</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <div class="tarjeta">
+        <h2>Comparación de Nombres</h2>
+
+        <form method="POST" action="/ejercicio2">
+            <div class="campo">
+                <label for="nombre1">Nombre 1:</label>
+                <input type="text" id="nombre1" name="nombre1" required>
+            </div>
+
+            <div class="campo">
+                <label for="nombre2">Nombre 2:</label>
+                <input type="text" id="nombre2" name="nombre2" required>
+            </div>
+
+            <div class="campo">
+                <label for="nombre3">Nombre 3:</label>
+                <input type="text" id="nombre3" name="nombre3" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+
+        {% if error %}
+            <div class="caja-resultado">
+                <p><strong>Error:</strong> {{ error }}</p>
+            </div>
+        {% endif %}
+
+        {% if nombre_mayor %}
+            <div class="caja-resultado">
+                <p><strong>El nombre con mayor cantidad de caracteres es:</strong> {{ nombre_mayor }}</p>
+                <p><strong>El nombre tiene:</strong> {{ cantidad_caracteres }} caracteres</p>
+            </div>
+        {% endif %}
+
+        <a class="enlace-volver" href="/">← Volver al menú principal</a>
+    </div>
+</body>
+</html>
